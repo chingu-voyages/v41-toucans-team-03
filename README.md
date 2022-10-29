@@ -51,3 +51,8 @@ The designs were created to the following widths:
 
 
 28.10.22 created based template - Maxi69K
+
+29.10.22 Completed HTML and CSS - Maxi69K
+*The complete layout of the page is complete width full response.
+*The site is mobile first responsive.
+*Added essential constants in JavaScript.
