@@ -30,15 +30,16 @@
         <!-- Login box -->
         <div id="login-box">
             <!-- Form -->
+            <div id="error"></div>
             <form id="my-form" action="">
                 <!-- Form group - First name -->
                 <div class="form-group">
-                    <input id="first-name" type="text" name="first-name" placeholder="First Name" required pattern="[A-Za-z-]{4,15}" title="Only letters (either case), and the dash; 4-15 characters." >
+                    <input id="first-name" type="text" name="first-name" placeholder="First Name" required pattern="[A-Za-z\s-]{3,15}" title="Only letters (either case), dash and space; 3-15 characters." >
                     <div id="error-first-name" class="error-box">First Name cannot be empty</div>
                 </div>
                 <!-- Form group - Last name -->
                 <div class="form-group">
-                    <input id="last-name" type="text" name="last-name" placeholder="Last Name" required pattern="[A-Za-z-]{4,15}" title="Only letters (either case), and the dash; 4-15 characters." >
+                    <input id="last-name" type="text" name="last-name" placeholder="Last Name" required pattern="[A-Za-z\s-]{3,15}" title="Only letters (either case), dash and space; 3-15 characters." >
                     <div id="error-last-name" class="error-box">Last Name cannot be empty</div>
                 </div>
                 <!-- Form group - User email -->
@@ -48,11 +49,11 @@
                 </div>
                 <!-- Form group - User password -->
                 <div class="form-group">
-                    <input id="user-password" type="password" name="user-password" placeholder="Password" required>
+                    <input id="user-password" type="password" name="user-password" placeholder="Password" required pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,15})/" title="Password must contain at least 1 lowercase, 1 uppercase, 1 numeric character and one special character; 8-15 characters">
                     <div id="error-password" class="error-box">Password cannot be empty</div>
                 </div>
                 <!-- Save button -->
-                <button type="submit" id="save-btn">Claim your free trial</button>
+                <button type="submit" id="save-btn">register</button>
             </form>
             <!-- Terms and Services -->
             <div id="terms-box">
