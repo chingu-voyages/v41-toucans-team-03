@@ -137,7 +137,8 @@ body {
 }
 
 /* Save Button */
-#save-btn {
+#save-btn,
+#deleteBtn {
   display: block;
   width: 100%;
   height: 53px;
@@ -153,6 +154,9 @@ body {
   cursor: pointer;
 }
 #save-btn:active {
+  transform: scale(0.98);
+}
+#deleteBtn:active {
   transform: scale(0.98);
 }
 
