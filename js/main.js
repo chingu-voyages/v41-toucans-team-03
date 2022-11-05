@@ -46,6 +46,10 @@ function formValidation(e) {
   let errorsEmail = []
   let errorsPassword = []
 
+  const nameRegex = new RegExp(/^[A-Za-z\s-]*$/)
+  const emailRegex= new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
+  const passwordRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{4,})/)
+
   // first name validation
   if (userData.fnv === '') {
     firstName.setAttribute('class', 'error')
@@ -55,6 +59,10 @@ function formValidation(e) {
     firstName.setAttribute('class', 'error')
     errorFirstNameBox.style.display = 'block'
     errorsName.push('Min 3 max 15 characters')
+  } else if (!nameRegex.test(userData.fnv)) {
+    firstName.setAttribute('class', 'error')
+    errorFirstNameBox.style.display = 'block'
+    errorsName.push('only letters (either case), dash and space')
   }
   // last name validation
   if (userData.lnv === '') {
@@ -65,16 +73,20 @@ function formValidation(e) {
     lastName.setAttribute('class', 'error')
     errorLastNameBox.style.display = 'block'
     errorsLastName.push('Min 3 max 15 characters')
+  } else if (!nameRegex.test(userData.lnv)) {
+    lastName.setAttribute('class', 'error')
+    errorLastNameBox.style.display = 'block'
+    errorsLastName.push('only letters (either case), dash or space')
   }
   // email validation
   if (userData.emv === '') {
     email.setAttribute('class', 'error')
     errorEmailBox.style.display = 'block'
     errorsEmail.push('Email cannot be empty')
-  } else if (userData.emv.indexOf('@') === -1) {
+  } else if (!emailRegex.test(userData.emv)) {
     email.setAttribute('class', 'error')
     errorEmailBox.style.display = 'block'
-    errorsEmail.push('Looks like this is not email')
+    errorsEmail.push('Please enter the correct email format.')
   }
   // password validation
   if (userData.psv === '') {
@@ -85,6 +97,10 @@ function formValidation(e) {
     password.setAttribute('class', 'error')
     errorPasswordBox.style.display = 'block'
     errorsPassword.push('Min 4 max 15 characters')
+  } else if (!passwordRegex.test(userData.psv)) {
+    password.setAttribute('class', 'error')
+    errorPasswordBox.style.display = 'block'
+    errorsPassword.push('at least 1 lowercase, uppercase, number and symbol')
   }
 
   if (errorsName.length !== 0 || errorsLastName.length !== 0 || errorsEmail.length !== 0 || errorsPassword.length !== 0) {
@@ -134,58 +150,3 @@ function formValidation(e) {
 function saveNewUser() {
   localStorage.userAccounts = JSON.stringify(userAccounts)
 }
-
-
-
-
-// saveBtn.addEventListener('click', (e) => {
-//   e.preventDefault()
-
-//   // New user
-//   let newUser = { firstName: '', lastName: '', email: '', password: '' }
-
-//   newUser.firstName = firstName.value
-//   newUser.lastName = lastName.value
-//   newUser.email = email.value
-//   newUser.password = password.value
-
-//   formValidation(newUser);
-// })
-
-// function formValidation(newUser) {
-// let errorMessages = {firstName:[], lastName: [], email: [], password: []}
-// const nameRegex = new RegExp(/^[A-Za-z\s-]*$/)
-// const emailRegex= new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/)
-// const passwordRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/)
-
-// if (newUser.firstName === '' || newUser.firstName === null) {
-//   errorMessages.firstName.push('Please input First Name.')
-// } else if (newUser.firstName.length < 3 || newUser.firstName.length > 15 || !nameRegex.test(newUser.firstName)) {
-//   errorMessages.firstName.push('First Name can contain letters (either case), dash and space; 3-15 characters.')
-// }
-
-// if (newUser.lastName === '' || newUser.lastName === null) {
-//   errorMessages.lastName.push('Please input Last Name.')
-// } else if (newUser.lastName.length < 3 || newUser.lastName.length > 15 || !nameRegex.test(newUser.lastName)) {
-//   errorMessages.lastName.push('Last Name can contain letters (either case), dash and space; 3-15 characters.')
-// }
-
-// if (newUser.email === '' || newUser.email === null) {
-//   errorMessages.email.push('Please input Email.')
-// } else if (!emailRegex.test(newUser.email)) {
-//   errorMessages.email.push('please enter the correct email format.')
-// }
-
-// if (newUser.password === '' || newUser.password === null) {
-//   errorMessages.password.push('Please input Password.')
-// } else if (newUser.password.length < 8 || newUser.password.length > 15 || !passwordRegex.test(newUser.password)) {
-//   errorMessages.password.push('Password must contain at least 1 lowercase, 1 uppercase, 1 numeric character and one special character; 8-15 characters.')
-// }
-
-//   console.log(nameRegex.test(newUser.firstName))
-//   console.log(nameRegex.test(newUser.lastName))
-//   console.log(emailRegex.test(newUser.email))
-//   console.log(passwordRegex.test(newUser.password))
-//   console.log(errorMessages)
-// }
-
