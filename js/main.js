@@ -1,4 +1,4 @@
-// v41-toucans-team-03
+// Users login website
 
 // Second box
 const secondBox = document.getElementById('second-box')

@@ -1,8 +1,5 @@
 # Intro component with sign up form solution from Frontend Mentor
 
-- Chingu voyage 41
-
-
 ## Overview
 
 ### Users should be able to:
@@ -40,16 +37,8 @@
 
 ## Authors
 ### 
-- Website - [Add your name here](https://www.your-site.com)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-### 
-- Website - [Add your name here](https://www.your-site.com)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-### 
-- Website - [Add your name here](https://www.your-site.com)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [Maxi web developer](https://webdizajnmaxi.eu.org)
+- Linkedin - [Goran Kekez](https://github.com/chingu-voyages/v41-toucans-team-03.git)
 
 
 
